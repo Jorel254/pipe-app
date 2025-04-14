@@ -10,6 +10,7 @@ import {
   TitleCasePipe,
   AsyncPipe,
 } from '@angular/common';
+import { interval, tap } from 'rxjs';
 @Component({
   selector: 'app-uncommon-page',
   imports: [
@@ -73,4 +74,6 @@ export class UncommonPageComponent {
       resolve('Tenemos data en la promesa');
     }, 5000);
   });
+
+  myObservable = interval(2000).pipe(tap((value) => console.log('tap', value)));
 }
