@@ -22,3 +22,19 @@
     <button [disabled]="clients().length === 0" class="btn btn-primary" (click)="deleteClient()">Borrar cliente</button>
   </app-card>
 </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-4">
+  <app-card title="Slice Pipe">
+    <b>
+      Slice: 0:2
+    </b>
+    <p>
+      {{ clients() | slice: 0:2 }}
+    </p>
+    <b>
+      Original:
+    </b>
+    <p>
+      {{clients().join(', ')}}
+    </p>
+  </app-card>
+</div>
