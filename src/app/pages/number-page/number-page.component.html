@@ -1,1 +1,60 @@
-<p>number-page works!</p>
+<section class="flex flex-col gap-4 mt-4">
+  <h1 class="text-2xl font-bold">Pipes Numéricos</h1>
+  <p class="text-sm">Este es un ejemplo de cómo usar las pipes numéricas de Angular.</p>
+
+  <div class="stats shadow">
+    <div class="stat place-items-center">
+      <div class="stat-title">Number pipe 1.2-4</div>
+      <div class="stat-value text-secondary">{{ totalVentas() | number:'1.2-4' }}</div>
+      <div class="stat-desc">Valor original: {{ totalVentas()}}</div>
+    </div>
+    <div class="stat place-items-center">
+      <div class="stat-title">Number pipe 1.2-2</div>
+      <div class="stat-value text-secondary">{{ totalVentas() | number:'1.2-2' }}</div>
+      <div class="stat-desc">Valor original: {{ totalVentas()}}</div>
+    </div>
+    <div class="stat place-items-center">
+      <div class="stat-title">Number pipe 1.0-0</div>
+      <div class="stat-value text-secondary">{{ totalVentas() | number:'1.0-0' }}</div>
+      <div class="stat-desc">Valor original: {{ totalVentas()}}</div>
+    </div>
+  </div>
+  <div class="stats shadow">
+    <div class="stat place-items-center">
+      <div class="stat-title">Currency pipe EUR</div>
+      <div class="stat-value text-secondary">{{ totalVentas() | currency:'EUR' }}</div>
+      <div class="stat-desc">Valor original: {{ totalVentas()}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Currency pipe USD</div>
+      <div class="stat-value text-secondary">{{ totalVentas() | currency:'USD' }}</div>
+      <div class="stat-desc">Valor original: {{ totalVentas()}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Currency pipe CAD</div>
+      <div class="stat-value text-secondary">{{ totalVentas() | currency:'CAD' }}</div>
+      <div class="stat-desc">Valor original: {{ totalVentas()}}</div>
+    </div>
+  </div>
+  <div class="stats shadow">
+    <div class="stat place-items-center">
+      <div class="stat-title">Percent pipe</div>
+      <div class="stat-value text-secondary">{{ porcentaje() | percent }}</div>
+      <div class="stat-desc">Valor original: {{ porcentaje()}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Percent pipe 2.2-2</div>
+      <div class="stat-value text-secondary">{{ porcentaje() | percent:'2.2-2' }}</div>
+      <div class="stat-desc">Valor original: {{ porcentaje()}}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Percent pipe 2.2-4</div>
+      <div class="stat-value text-secondary">{{ porcentaje() | percent:'2.2-4' }}</div>
+      <div class="stat-desc">Valor original: {{ porcentaje()}}</div>
+    </div>
+  </div>
+</section>

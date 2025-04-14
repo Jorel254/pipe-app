@@ -1,0 +1,7 @@
+<div class="navbar bg-primary text-primary-content rounded-full">
+  @for (ruta of rutas; track ruta.path) {
+  <a [routerLink]="ruta.path" routerLinkActive="text-primary" [routerLinkActiveOptions]="{ exact: true }" class="btn  btn-soft text-xl  mr-2">
+    {{ ruta.title }}
+  </a>
+  }
+</div>
