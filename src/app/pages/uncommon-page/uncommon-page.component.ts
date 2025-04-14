@@ -1,9 +1,28 @@
 import { Component, signal } from '@angular/core';
 import { CardComponent } from '../../components/card/card.component';
-import { I18nPluralPipe, I18nSelectPipe, SlicePipe } from '@angular/common';
+import {
+  I18nPluralPipe,
+  I18nSelectPipe,
+  SlicePipe,
+  JsonPipe,
+  UpperCasePipe,
+  KeyValuePipe,
+  TitleCasePipe,
+  AsyncPipe,
+} from '@angular/common';
 @Component({
   selector: 'app-uncommon-page',
-  imports: [CardComponent, I18nSelectPipe, I18nPluralPipe, SlicePipe],
+  imports: [
+    CardComponent,
+    I18nSelectPipe,
+    I18nPluralPipe,
+    SlicePipe,
+    JsonPipe,
+    UpperCasePipe,
+    KeyValuePipe,
+    TitleCasePipe,
+    AsyncPipe,
+  ],
   templateUrl: './uncommon-page.component.html',
   styleUrl: './uncommon-page.component.css',
 })
@@ -48,4 +67,10 @@ export class UncommonPageComponent {
   deleteClient() {
     this.clients.update((clients) => clients.slice(0, -1));
   }
+
+  promiseValue = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Tenemos data en la promesa');
+    }, 5000);
+  });
 }

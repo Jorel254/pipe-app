@@ -5,36 +5,70 @@
   </p>
 </section>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+<div
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4"
+>
   <app-card title="i18nSelect Pipe">
     <p>
-      Saludos {{ client().name }}, es un placer {{ client().gender | i18nSelect: invitationMap }} a nuestro evento.
+      Saludos {{ client().name }}, es un placer
+      {{ client().gender | i18nSelect : invitationMap }} a nuestro evento.
     </p>
-    <button class="btn btn-primary" (click)="changeClient()">Cambiar cliente</button>
+    <button class="btn btn-primary" (click)="changeClient()">
+      Cambiar cliente
+    </button>
   </app-card>
-</div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-4">
   <app-card title="i18nPlural Pipe">
-    <p>
-      Actualmente {{ clients().length | i18nPlural: clientsMap }}
-    </p>
-    <button [disabled]="clients().length === 0" class="btn btn-primary" (click)="deleteClient()">Borrar cliente</button>
+    <p>Actualmente {{ clients().length | i18nPlural : clientsMap }}</p>
+    <button
+      [disabled]="clients().length === 0"
+      class="btn btn-primary"
+      (click)="deleteClient()"
+    >
+      Borrar cliente
+    </button>
   </app-card>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-4">
+
   <app-card title="Slice Pipe">
-    <b>
-      Slice: 0:2
-    </b>
+    <b> Slice: 0:2 </b>
     <p>
-      {{ clients() | slice: 0:2 }}
+      {{ clients() | slice : 0 : 2 }}
     </p>
-    <b>
-      Original:
-    </b>
+    <b> Original: </b>
     <p>
-      {{clients().join(', ')}}
+      {{ clients().join(", ") }}
     </p>
+  </app-card>
+  <app-card title="Json Pipe">
+    <p>
+      {{ clients() }}
+    </p>
+    <p>
+      {{ client() | json }}
+    </p>
+    <p>
+      {{ clients() | json | uppercase }}
+    </p>
+  </app-card>
+  <app-card title="KeyValue Pipe">
+    <ul>
+      @for (client of client() | keyvalue; track $index) {
+      <li>
+        <strong class="mr-2 text-secondary">{{ client.key | titlecase }}</strong>
+        <span>{{ client.value }}</span>
+      </li>
+      }
+    </ul>
+  </app-card>
+
+  <app-card title="Async Pipe">
+    <p>
+      {{ promiseValue | async }}
+    </p>
+    @if (promiseValue | async; as promise) {
+      <p class="text-success">
+        {{ promise }}
+      </p>
+    }
   </app-card>
 </div>
