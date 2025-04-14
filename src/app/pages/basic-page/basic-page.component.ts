@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-basic-page',
@@ -10,4 +10,14 @@ export class BasicPageComponent {
   nameLower = signal('Sergio');
   nameUpper = signal('SERGIO');
   fullName = signal('SERgio HerrERA');
+
+  customDate = signal(new Date());
+
+  tickingDateEffect = effect((onCleanup) => {
+    const interval = setInterval(() => {
+      this.customDate.set(new Date());
+    }, 1000);
+
+    onCleanup(() => clearInterval(interval));
+  });
 }

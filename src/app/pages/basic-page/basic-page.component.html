@@ -1,24 +1,81 @@
 <section class="flex flex-col gap-4 mt-4">
   <h1 class="text-2xl font-bold">Pipes Básicos</h1>
-  <p class="text-sm">Este es un ejemplo de cómo usar las pipes básicas de Angular.</p>
+  <p class="text-sm">
+    Este es un ejemplo de cómo usar las pipes básicas de Angular.
+  </p>
 
   <div class="stats shadow">
     <div class="stat place-items-center">
       <div class="stat-title">Lowercase pipe</div>
       <div class="stat-value text-secondary">{{ nameUpper() | lowercase }}</div>
-      <div class="stat-desc">Valor original:  {{ nameUpper()}}</div>
+      <div class="stat-desc">Valor original: {{ nameUpper() }}</div>
     </div>
 
     <div class="stat place-items-center">
       <div class="stat-title">Uppercase pipe</div>
       <div class="stat-value text-secondary">{{ nameLower() | uppercase }}</div>
-      <div class="stat-desc">Valor original:  {{ nameLower()}}</div>
+      <div class="stat-desc">Valor original: {{ nameLower() }}</div>
     </div>
 
     <div class="stat place-items-center">
       <div class="stat-title">Titlecase pipe</div>
       <div class="stat-value text-secondary">{{ fullName() | titlecase }}</div>
-      <div class="stat-desc">Valor original:  {{ fullName()}}</div>
+      <div class="stat-desc">Valor original: {{ fullName() }}</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="stats shadow">
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date }}
+      </div>
+      <div class="stat-desc">Valor original: {{ customDate() }}</div>
+    </div>
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe long</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date : "long" }}
+      </div>
+      <div class="stat-desc">Valor original: {{ customDate() }}</div>
+    </div>
+  </div>
+  <div class="stats shadow">
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe short</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date : "short" }}
+      </div>
+      <div class="stat-desc">Valor original: {{ customDate() }}</div>
+    </div>
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe medium</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date : "medium" }}
+      </div>
+      <div class="stat-desc">Valor original: {{ customDate() }}</div>
+    </div>
+  </div>
+  <div class="stats shadow">
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe dd/MM/yyyy</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date : "dd/MM/yyyy" }}
+      </div>
+      <div class="stat-desc">Valor original: {{ customDate() }}</div>
+    </div>
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe HH:mm:ss</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date : "HH:mm:ss" }}
+      </div>
+      <div class="stat-desc">Valor original: {{ customDate() }}</div>
+    </div>
+    <div class="stat place-items-center">
+      <div class="stat-title">Date pipe EEEE d, MMMM</div>
+      <div class="stat-value text-secondary">
+        {{ customDate() | date : "EEEE d, MMMM " }}
+      </div>
     </div>
   </div>
 </section>
