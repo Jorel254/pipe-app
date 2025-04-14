@@ -16,7 +16,18 @@
     </div>
   </app-card>
 </div>
-<div class="divider "></div>
+<div class="divider"></div>
+<section class="overflow-x-auto w-full mb-4">
+  <h1 class="text-2xl font-bold mb-4">Pipes personalizados en acción</h1>
+  <input type="text" class="input input-bordered w-full max-w-xs" placeholder="Filtrar heroes" #searchHero
+    (input)="search.set(searchHero.value)" />
+  <div class="flex gap-2 justify-end w-full">
+    <button class="btn btn-warning" (click)="changeSortBy('name')">Por nombre</button>
+    <button class="btn btn-primary" (click)="changeSortBy('color')">Por color</button>
+    <button class="btn btn-secondary" (click)="changeSortBy('creator')">Por creador</button>
+    <button class="btn btn-accent" (click)="changeSortBy('canFly')">Por volar</button>
+  </div>
+</section>
 <div class="overflow-x-auto w-full">
   <table class="table table-xs w-full">
     <thead>
@@ -29,13 +40,24 @@
       </tr>
     </thead>
     <tbody>
-      @for (hero of heroes(); track hero.id; let i = $index) {
+      @for (hero of heroes() | heroFilerPipe: search() | heroSortByPipe: sortBy(); track hero.id; let i = $index) {
       <tr>
         <th>{{ i + 1 }}</th>
         <td>{{ hero.name }}</td>
-        <td>{{ hero.canFly }}</td>
-        <td>{{ hero.color }}</td>
-        <td>{{ hero.creator }}</td>
+        <td>
+          <span class="badge" [class.badge-success]="hero.canFly" [class.badge-error]="!hero.canFly">
+            {{ hero.canFly | canFlyPipe }}
+          </span>
+        </td>
+        <td>
+          <div class="badge badge-md" [style.background-color]="hero.color | heroHexColorPipe" [style.color]="'white'">
+            {{ hero.color | heroColorPipe | titlecase }}
+          </div>
+        </td>
+        <div class="badge badge-md" [style.background-color]="hero.creator == creatorHero.DC ? '#0476F2' : '#F0131E'"
+          [style.color]="'white'">
+          {{ hero.creator | heroCreatorPipe }}
+        </div>
       </tr>
       }
     </tbody>
