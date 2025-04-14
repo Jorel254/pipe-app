@@ -1,0 +1,13 @@
+{
+  "plugins": {
+    "@tailwindcss/postcss": {},
+    "autoprefixer": {},
+    "daisyui": {
+      "themes": [
+        "dracula",
+        "light"
+      ],
+      "darkTheme": "dracula"
+    }
+  }
+}
